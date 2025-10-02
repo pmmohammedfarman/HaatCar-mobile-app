@@ -22,8 +22,14 @@ class MyApp extends ConsumerWidget {
       locale: ref.watch(localeProvider).value ?? Locale('en'),
       supportedLocales: L10n.all,
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      title: '${AppLocalizations.of(context)?.appTitle}',
+      home: MyHomePage(title: '${AppLocalizations.of(context)?.appTitle}'),
+      // routerConfig: router,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+        fontFamily: 'Changa',
+      ),
     );
   }
 }
