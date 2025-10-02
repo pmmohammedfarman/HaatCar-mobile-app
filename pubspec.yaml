@@ -27,6 +27,14 @@ environment:
 # dependencies can be manually updated by changing the version numbers below to
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
+
+flutter_app_name_localization:
+  default: "هات كار"
+  locales:
+    - locale: "en"
+      name: "Haat Car"
+    - locale: "ar"
+      name: "هات كار"
 dependencies:
   flutter:
     sdk: flutter
@@ -37,6 +45,7 @@ dependencies:
   intl: ^0.20.2
   flutter_localizations:
     sdk: flutter
+  flutter_app_name_localization: ^0.0.6
 
 dev_dependencies:
   flutter_test:
