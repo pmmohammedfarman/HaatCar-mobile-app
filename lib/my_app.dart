@@ -5,6 +5,7 @@ import 'package:haat_car/home_screen.dart';
 import 'application/locale_provider.dart';
 import 'l10n/app_localizations.dart';
 import 'l10n/l10.dart';
+import 'presentation/onboarding_screens/onboarding_welcome_screen.dart';
 
 class MyApp extends ConsumerWidget {
   const MyApp({super.key});
@@ -19,11 +20,13 @@ class MyApp extends ConsumerWidget {
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
-      locale: ref.watch(localeProvider).value ?? Locale('en'),
+      locale:  Locale('en'),
+      // ref.watch(localeProvider).value ?? Locale('en'),
       supportedLocales: L10n.all,
       debugShowCheckedModeBanner: false,
       title: '${AppLocalizations.of(context)?.appTitle}',
-      home: MyHomePage(title: '${AppLocalizations.of(context)?.appTitle}'),
+      home: OnboardingWelcomeScreen(),
+      // MyHomePage(title: '${AppLocalizations.of(context)?.appTitle}'),
       // routerConfig: router,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
