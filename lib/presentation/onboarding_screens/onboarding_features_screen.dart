@@ -109,32 +109,47 @@ class OnboardingFeaturesScreen extends ConsumerWidget {
                   ),
                   // Grid of cards
                   Padding(
-                    padding: const EdgeInsets.all(16.0), // p-4
-                    child: GridView.count(
-                      crossAxisCount: 2,
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      mainAxisSpacing: 12.0, // gap-3
-                      crossAxisSpacing: 12.0,
-                      childAspectRatio: 1,
-                      children: const [
-                        _FeatureCard(
-                          icon: Icons.directions_car,
-                          title: 'Wide selection of cars',
-                          description:
-                              'Choose from a variety of vehicles to suit your needs.',
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      children: [
+                        Row(
+                          children: <Widget>[
+                            Expanded(
+                              flex: 1,
+                              child: _FeatureCard(
+                                icon: Icons.directions_car,
+                                title: 'Wide selection of cars',
+                                description:
+                                    'Choose from a variety of vehicles to suit your needs.',
+                              ),
+                            ),
+                            SizedBox(width: 12),
+                            Expanded(
+                              flex: 1,
+                              child: _FeatureCard(
+                                icon: Icons.location_on,
+                                title: 'Convenient pickup locations',
+                                description:
+                                    'Pick up your car at locations near you or at the airport.',
+                              ),
+                            ),
+                          ],
                         ),
-                        _FeatureCard(
-                          icon: Icons.location_on,
-                          title: 'Convenient pickup locations',
-                          description:
-                              'Pick up your car at locations near you or at the airport.',
-                        ),
-                        _FeatureCard(
-                          icon: Icons.calendar_today,
-                          title: 'Flexible booking options',
-                          description:
-                              'Book for a day, a week, or longer, with easy modifications.',
+                        SizedBox(height: 12.0),
+                        Row(
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child: _FeatureCard(
+                                icon: Icons.calendar_today,
+                                title: 'Flexible booking options',
+                                description:
+                                    'Book for a day, a week, or longer, with easy modifications.',
+                              ),
+                            ),
+                            SizedBox(width: 12),
+                            Expanded(flex: 1, child: SizedBox()),
+                          ],
                         ),
                       ],
                     ),
@@ -150,7 +165,7 @@ class OnboardingFeaturesScreen extends ConsumerWidget {
               children: [
                 SizedBox(
                   width: double.infinity,
-                  height: 48.0, // h-12
+
                   child: ElevatedButton(
                     onPressed: () {
                       context.go("/onboarding_ready_to_go_screen");
@@ -208,7 +223,7 @@ class _FeatureCard extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.max,
         children: [
           Icon(
             icon,

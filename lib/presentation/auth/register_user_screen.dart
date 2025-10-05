@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'package:go_router/go_router.dart';
 
 class RegisterUserScreen extends StatefulWidget {
   const RegisterUserScreen({super.key});
@@ -364,7 +365,7 @@ class _RegisterUserScreenState extends State<RegisterUserScreen> {
                   height: 48.0, // h-12
                   child: ElevatedButton(
                     onPressed: () {
-                      // context.push('/register_user_screen');
+                      context.push('/my_home_screen');
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFFF2740D), // #f2740d
