@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:haat_car/presentation/onboarding_screens/onboarding_features_screen.dart';
 
 class OnboardingWelcomeScreen extends ConsumerWidget {
@@ -64,11 +65,7 @@ class OnboardingWelcomeScreen extends ConsumerWidget {
                   height: 48.0, // h-12
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => OnboardingFeaturesScreen(),
-                        ),
-                      );
+                      context.go('/onboarding_features_screen');
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFFF2740D), // #f2740d

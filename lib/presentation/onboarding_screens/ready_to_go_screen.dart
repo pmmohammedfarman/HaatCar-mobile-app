@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 class OnboardingReadyToGoScreen extends ConsumerWidget {
   const OnboardingReadyToGoScreen({super.key});
@@ -96,7 +97,8 @@ class OnboardingReadyToGoScreen extends ConsumerWidget {
                   height: 48.0, // h-12
                   child: ElevatedButton(
                     onPressed: () {
-                      // Handle button press (e.g., navigate)
+                     
+                       context.push( '/login_screen');
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFFF2740D), // #f2740d
