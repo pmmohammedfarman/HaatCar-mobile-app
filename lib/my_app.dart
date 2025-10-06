@@ -28,7 +28,8 @@ class MyApp extends ConsumerWidget {
       title: '${AppLocalizations.of(context)?.appTitle}',
       routerConfig: router,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        
+        colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFFF97316)),
         useMaterial3: true,
         fontFamily: 'Changa',
       ),

@@ -2,6 +2,7 @@ import 'package:go_router/go_router.dart';
 import 'presentation/auth/login_screen.dart';
 import 'presentation/auth/otp_screen.dart';
 import 'presentation/auth/register_user_screen.dart';
+import 'presentation/car_search/car_search_results.dart';
 import 'presentation/home/home_page.dart';
 import 'presentation/onboarding_screens/onboarding_features_screen.dart';
 import 'presentation/onboarding_screens/onboarding_welcome_screen.dart';
@@ -54,6 +55,13 @@ final GoRouter router = GoRouter(
         return HomeScreen(); // Pass the parameter to your page
       },
     ),
+    GoRoute(
+      path: '/car_search_results', // :id is the parameter
+      builder: (context, state) {
+        return CarSearchResults(); // Pass the parameter to your page
+      },
+    ),
   ],
 );
-// 
+//  
+

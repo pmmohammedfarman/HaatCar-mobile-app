@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart'; // For formatting dates and times
 
 class CarwahApp extends StatelessWidget {
@@ -369,7 +370,9 @@ class _CarwahHomeState extends State<CarwahHome> {
                       ),
                       elevation: 4,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      context.push("/car_search_results");
+                    },
                     child: const Text(
                       'Find Cars',
                       style: TextStyle(
