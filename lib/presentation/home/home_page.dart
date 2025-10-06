@@ -10,10 +10,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0; // For bottom navigation
 
-  Color _getColor({
-    required bool isDark,
-    required String colorKey,
-  }) {
+  Color _getColor({required bool isDark, required String colorKey}) {
     final lightColors = {
       'background': const Color(0xFFF3F4F6),
       'card': const Color(0xFFFFFFFF),
@@ -48,32 +45,22 @@ class _HomeScreenState extends State<HomeScreen> {
       decoration: BoxDecoration(
         color: cardColor,
         borderRadius: BorderRadius.circular(12),
-       
       ),
       child: ListTile(
-        onTap: () {
-          
-        },
-        trailing:  Icon(
-            icon,
-            color: primaryColor,
-            size: 32,
-          ),
+        onTap: () {},
+        trailing: Icon(icon, color: primaryColor, size: 32),
         title: Text(
-            title,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-              color: textColor,
-            ),
+          title,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+            color: textColor,
           ),
-          subtitle: Text(
-            subtitle,
-            style: TextStyle(
-              fontSize: 12,
-              color: subtextColor,
-            ),
-          ),
+        ),
+        subtitle: Text(
+          subtitle,
+          style: TextStyle(fontSize: 12, color: subtextColor),
+        ),
       ),
     );
   }
@@ -94,16 +81,11 @@ class _HomeScreenState extends State<HomeScreen> {
       decoration: BoxDecoration(
         color: cardColor,
         borderRadius: BorderRadius.circular(12),
-       
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            icon,
-            color: primaryColor,
-            size: 48,
-          ),
+          Icon(icon, color: primaryColor, size: 48),
           const SizedBox(height: 8),
           Text(
             type,
@@ -127,7 +109,20 @@ class _HomeScreenState extends State<HomeScreen> {
     final subtextColor = _getColor(isDark: isDark, colorKey: 'subtext');
     final primaryColor = _getColor(isDark: isDark, colorKey: 'primary');
     final cardColor = _getColor(isDark: isDark, colorKey: 'card');
+ final theme2 = Theme.of(context);
+    final isDark2 = theme2.brightness == Brightness.dark;
 
+    final backgroundColor2 = isDark
+        ? const Color(0xFF1F2937)
+        : const Color(0xFFF3F4F6);
+    final cardColor2 = isDark ? const Color(0xFF374151) : Colors.white;
+    final textColor2 = isDark
+        ? const Color(0xFFF9FAFB)
+        : const Color(0xFF111827);
+    final subTextColor2 = isDark
+        ? const Color(0xFF9CA3AF)
+        : const Color(0xFF6B7280);
+    const primaryColor2 = Color(0xFFF59E0B); // Orange
     return Scaffold(
       backgroundColor: backgroundColor,
       body: Column(
@@ -191,20 +186,18 @@ class _HomeScreenState extends State<HomeScreen> {
                           // Image placeholder - Replace with actual Image.network or asset
                           Container(
                             width: double.infinity,
-                            height: 225, 
-                            decoration:  BoxDecoration(
+                            height: 225,
+                            decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(16),
-                      image: DecorationImage(
-                        image: NetworkImage(
-                          "https://lh3.googleusercontent.com/aida-public/AB6AXuBe7j7LVFzWDJfNIfAK_f_836-cu9wyFKpQ3DnaYnbSkvKR7tGmPimsTA9vWH4ipIaj5d4Q34bkVPXyhJ2FJMv0VI5ajU_Pi-nj1orchFE2nRj4XzJAJyIJSaGum1I4-d7ya4HQcfg4sjtIUssrl11Bc1VfNKU_jr6Xvfxg9gk85mZq3Fk_npmGzEesxBH5dayX9jBpmkqArhr-b6yRi0cOnX9VPYxnZc5r6pL58om5QztYdlyJ_VNeOWtudH_GMg21BrfGvNr7hKQ",
-
-                        ),
-                        fit: BoxFit.cover,
-                        alignment: Alignment.center,
-                        repeat: ImageRepeat.noRepeat,
-                      ),
-                    ),
-                           
+                              image: DecorationImage(
+                                image: NetworkImage(
+                                  "https://lh3.googleusercontent.com/aida-public/AB6AXuBe7j7LVFzWDJfNIfAK_f_836-cu9wyFKpQ3DnaYnbSkvKR7tGmPimsTA9vWH4ipIaj5d4Q34bkVPXyhJ2FJMv0VI5ajU_Pi-nj1orchFE2nRj4XzJAJyIJSaGum1I4-d7ya4HQcfg4sjtIUssrl11Bc1VfNKU_jr6Xvfxg9gk85mZq3Fk_npmGzEesxBH5dayX9jBpmkqArhr-b6yRi0cOnX9VPYxnZc5r6pL58om5QztYdlyJ_VNeOWtudH_GMg21BrfGvNr7hKQ",
+                                ),
+                                fit: BoxFit.cover,
+                                alignment: Alignment.center,
+                                repeat: ImageRepeat.noRepeat,
+                              ),
+                            ),
                           ),
                         ],
                       ),
@@ -216,7 +209,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     crossAxisCount: 2,
-                    
+
                     crossAxisSpacing: 16,
                     mainAxisSpacing: 16,
                     childAspectRatio: 2.5,
@@ -255,7 +248,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     decoration: BoxDecoration(
                       color: cardColor,
                       borderRadius: BorderRadius.circular(12),
-                     
                     ),
                     child: Row(
                       children: [
@@ -326,12 +318,266 @@ class _HomeScreenState extends State<HomeScreen> {
                         const SizedBox(width: 12),
                         _buildVehicleTypeCard(
                           icon: Icons.local_shipping, // Placeholder for Van
-                          type: 'Van',
+                          type: 'Commercial',
+                          context: context,
+                        ),
+                        const SizedBox(width: 12),
+                        _buildVehicleTypeCard(
+                          icon:
+                              Icons.electric_car_rounded, // Placeholder for Van
+                          type: 'Luxury',
                           context: context,
                         ),
                       ],
                     ),
                   ),
+
+                  const SizedBox(height: 24),
+                  // Search by Vehicle Type
+                  Text(
+                    'Search By Service',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: textColor,
+                    ),
+                  ),
+                 
+
+           
+            GridView.count(
+              crossAxisCount: 3,
+              crossAxisSpacing: 12,
+              mainAxisSpacing: 12,
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              childAspectRatio: 1,
+              children: [
+                _cardWrapper(
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Icon(Icons.map, color: primaryColor2, ),
+                      SizedBox(height: 8),
+                      Text(
+                        "Unlimited Kilometers",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 12),
+                      ),
+                    ],
+                  ),
+                  cardColor2,
+                ),
+                _cardWrapper(
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Icon(Icons.location_on, color: primaryColor2),
+                      SizedBox(height: 8),
+                      Text(
+                        "Car return in another branch",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 12),
+                      ),
+                    ],
+                  ),
+                  cardColor2,
+                ),
+
+                 _buildAddOnCard(
+                context,
+                icon: Icons.directions_car,
+                badgeIcon: Icons.verified,
+                title: 'Full Insurance',
+                iconColor: primaryColor,
+                badgeColor: primaryColor,
+                hasBadge: true,
+                badgePosition: Alignment.topRight,
+                badgeSize: 24,
+              ),
+               
+                  _cardWrapper(
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Icon( Icons.child_care, color: primaryColor2),
+                      SizedBox(height: 8),
+                      Text(
+                      'Child Car seat',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 12),
+                      ),
+                    ],
+                  ),
+                  cardColor2,
+                ),
+
+
+                  _cardWrapper(
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Icon( Icons.public, color: primaryColor2),
+                      SizedBox(height: 8),
+                      Text(
+                      'GCC border fee',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 12),
+                      ),
+                    ],
+                  ),
+                  cardColor2,
+                ),
+                _buildAddOnCard(
+                context,
+                icon: Icons.directions_car,
+                badgeIcon: Icons.add_circle,
+                title: 'Extra driver',
+                iconColor: isDark ? const Color(0xFFD1D5DB) : const Color(0xFF374151),
+                badgeColor: primaryColor,
+                hasBadge: true,
+                badgePosition: Alignment.topRight,
+                badgeSize: 20,
+                badgeBackground: isDark ? const Color(0xFF1F2937) : Colors.white,
+              ),
+               
+               
+              ],
+            ),
+      
+            const SizedBox(height: 24),
+      
+            // Coupon Section
+            Text(
+              "Do you have a coupon?",
+              style: TextStyle(
+                fontFamily: 'Changa',
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: textColor2,
+              ),
+            ),
+            const SizedBox(height: 12),
+            Container(
+              decoration: BoxDecoration(
+                color: cardColor2,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 12,
+                vertical: 4,
+              ),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Add coupon here',
+                        hintStyle: TextStyle(color: subTextColor2),
+                        border: InputBorder.none,
+                      ),
+                    ),
+                  ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: primaryColor2,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 24,
+                        vertical: 12,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(32),
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: const Text(
+                      "APPLY",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+      
+            const SizedBox(height: 24),
+      
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Search By Map",
+                  style: theme2.textTheme.headlineSmall?.copyWith(
+                  fontWeight: FontWeight.bold,
+                  color: theme2.colorScheme.onBackground,
+                ),
+                ),
+                Row(
+                  children: [
+                    Text("Riyadh", style: TextStyle(color: subTextColor2)),
+                    const Icon(Icons.arrow_drop_down, color: Colors.grey),
+                  ],
+                ),
+              ],
+            ),
+            const SizedBox(height: 12),
+            
+              Stack(
+                children: [
+                  Container(
+                    height: 225,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      boxShadow: [
+                        BoxShadow(
+                          // color: Colors.black.withOpacity(0.1),
+                          blurRadius: 12,
+                          offset: const Offset(0, 4),
+                        ),
+                      ],
+                      image: const DecorationImage(
+                        image: NetworkImage(
+                          'https://lh3.googleusercontent.com/aida-public/AB6AXuCVpYGjp6K4X0QPv2KegBuCIQvTVnuToZfwe1U2RX4UxtbRHPbUfuBVRUvy7-Ag9x--iuKnlmwGN0bFDERK0J_PNxeZp7wD3gtPEqIQNLgYSxWayoMXvZbtGG1-tLzCu7jhbjZ1UeDi4qzBC6KK-Tgi93S6Sc_T2anQtLaLbRX2VAI-qKqM4iFhLw8PSMTevVNI9lKdu6i9D2Jz6OaAdPVjeLZ4d1ONby1vRKmO4IaDmPLt626L-DB29PxDEV0OHzXffxf_CqZf34LB',
+                        ),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+              
+                  Positioned(
+                    bottom: 16,
+                    left: 0,
+                    right: 0,
+                    child: Center(
+                      child: ElevatedButton(
+                        onPressed: () {}, // Placeholder
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: primaryColor,
+                          foregroundColor: Colors.white,
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 32,
+                            vertical: 12,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(24),
+                          ),
+                          elevation: 4,
+                        ),
+                        child: const Text(
+                          'View on Map',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),], ), 
+            
+            const SizedBox(height: 80),
                 ],
               ),
             ),
@@ -347,24 +593,235 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: cardColor,
         elevation: 8,
         items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.key),
-            label: 'Rentals',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.more_horiz),
-            label: 'More',
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+          BottomNavigationBarItem(icon: Icon(Icons.key), label: 'Rentals'),
+          BottomNavigationBarItem(icon: Icon(Icons.more_horiz), label: 'More'),
         ],
       ),
     );
   }
+  Widget _cardWrapper(Widget child, Color cardColor) {
+    return Container(
+      decoration: BoxDecoration(
+        color: cardColor,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 4)],
+      ),
+      padding: const EdgeInsets.all(12),
+      child: Center(child: child),
+    );
+  }
+   Widget _buildAddOnCard(
+    BuildContext context, {
+    required IconData icon,
+    IconData? badgeIcon,
+    required String title,
+    required Color iconColor,
+    Color? badgeColor,
+    bool hasBadge = false,
+    Alignment badgePosition = Alignment.topRight,
+    double badgeSize = 24,
+    Color? badgeBackground,
+  }) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final cardColor = isDark ? const Color(0xFF1F2937) : Colors.white;
+    final textColor = isDark ? const Color(0xFFF3F4F6) : const Color(0xFF1F2937);
+
+    return SizedBox(
+
+      child: DecoratedBox(
+        decoration:
+        BoxDecoration(
+          color: Colors.white,
+          boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 4)],
+           borderRadius: BorderRadius.circular(12), // 1rem ~ 16px, but adjusted for card
+        ), 
+        
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Stack(
+                alignment: badgePosition,
+                children: [
+                  Icon(
+                    icon,
+                    size: 48,
+                    color: iconColor,
+                  ),
+                  if (hasBadge)
+                    Container(
+                      padding: const EdgeInsets.all(2),
+                      decoration: BoxDecoration(
+                        color: badgeBackground ?? cardColor,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        badgeIcon,
+                        size: badgeSize,
+                        color: badgeColor ?? iconColor,
+                      ),
+                    ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              Text(
+                title,
+                style: TextStyle(
+                  fontSize: 12, // text-sm
+                  color: textColor,
+                  fontWeight: FontWeight.w500,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
+
+/*
+class CarRentalHome extends StatelessWidget {
+  const CarRentalHome({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme2 = Theme.of(context);
+    final isDark = theme2.brightness == Brightness.dark;
+
+    final backgroundColor2 = isDark
+        ? const Color(0xFF1F2937)
+        : const Color(0xFFF3F4F6);
+    final cardColor2 = isDark ? const Color(0xFF374151) : Colors.white;
+    final textColor2 = isDark
+        ? const Color(0xFFF9FAFB)
+        : const Color(0xFF111827);
+    final subTextColor2 = isDark
+        ? const Color(0xFF9CA3AF)
+        : const Color(0xFF6B7280);
+    const primaryColor2 = Color(0xFFF59E0B); // Orange
+
+    return Scaffold(
+      backgroundColor: backgroundColor2,
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: ListView(
+          children: [
+            // Header
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Offers & Rental Packages",
+                      style: TextStyle(
+                        fontFamily: 'Changa',
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: textColor2,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      "Designed to meet your needs",
+                      style: TextStyle(
+                        fontFamily: 'Changa',
+                        fontSize: 13,
+                        color: subTextColor2,
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: primaryColor2.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: const Icon(
+                    Icons.calendar_today,
+                    size: 32,
+                    color: primaryColor2,
+                  ),
+                ),
+              ],
+            ),
+      
+            const SizedBox(height: 24),
+      
+            // Vehicle Type Section
+            Text(
+              "Search By Vehicle Type",
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: textColor2,
+              ),
+            ),
+            const SizedBox(height: 12),
+            GridView.count(
+              crossAxisCount: 3,
+              crossAxisSpacing: 12,
+              mainAxisSpacing: 12,
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              childAspectRatio: 1,
+              children: [
+                vehicleTypeCard(
+                  "SUV",
+                  "https://lh3.googleusercontent.com/aida-public/AB6AXuC_Ga6dcu0b...",
+                ),
+                vehicleTypeCard(
+                  "Luxury",
+                  "https://lh3.googleusercontent.com/aida-public/AB6AXuB9l3fmItB4w...",
+                ),
+                vehicleTypeCard(
+                  "Commercial",
+                  "https://lh3.googleusercontent.com/aida-public/AB6AXuBcZV6h4e1lD...",
+                ),
+              ].map((widget) => _cardWrapper(widget, cardColor2)).toList(),
+            ),
+      
+            const SizedBox(height: 24),
+      
+         
+            
+          ],
+        ),
+      ),
+      // Bottom Navigation
+      
+    );
+  }
+
+  Widget vehicleTypeCard(String title, String imgUrl) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Image.network(imgUrl, height: 48, fit: BoxFit.contain),
+        const SizedBox(height: 8),
+        Text(title, style: const TextStyle(fontWeight: FontWeight.w600)),
+      ],
+    );
+  }
+
+  Widget _cardWrapper(Widget child, Color cardColor) {
+    return Container(
+      decoration: BoxDecoration(
+        color: cardColor,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 4)],
+      ),
+      padding: const EdgeInsets.all(12),
+      child: Center(child: child),
+    );
+  }
+}
+*/
