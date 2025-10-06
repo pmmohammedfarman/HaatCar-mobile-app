@@ -365,7 +365,7 @@ class _RegisterUserScreenState extends State<RegisterUserScreen> {
                   height: 48.0, // h-12
                   child: ElevatedButton(
                     onPressed: () {
-                      context.push('/my_home_screen');
+                      context.push('/main_navigation');
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFFF2740D), // #f2740d

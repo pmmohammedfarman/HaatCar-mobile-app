@@ -9,7 +9,9 @@ import 'presentation/onboarding_screens/ready_to_go_screen.dart';
 
 final GoRouter router = GoRouter(
   routes: <RouteBase>[
-    GoRoute(path: '/', builder: (context, state) => OnboardingWelcomeScreen()),
+    GoRoute(path: '/', builder: (context, state) => OnboardingWelcomeScreen()), 
+
+    GoRoute(path: '/main_navigation', builder: (context, state) => MainNavigation()), 
     GoRoute(
       path: '/onboarding_welcome_screen', // :id is the parameter
       builder: (context, state) {

@@ -1,4 +1,70 @@
 import 'package:flutter/material.dart';
+import '../car_search/car_search_screen.dart';
+
+class MainNavigation extends StatefulWidget {
+  const MainNavigation({super.key});
+
+  @override
+  State<MainNavigation> createState() => _MainNavigationState();
+}
+
+class _MainNavigationState extends State<MainNavigation> {
+  int _currentIndex = 0;
+
+  final Color primaryColor = const Color(0xFFF97316);
+  final Color subtextColor = const Color(0xFF4C739A);
+  final Color cardColor = Colors.white;
+
+  // 👇 Define your screens here
+  final List<Widget> _screens = [
+    const HomeScreen(),
+    const CarwahApp(), // Search/Find Car Screen
+    const RentalsScreen(),
+    const UserProfileScreen(),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: _screens[_currentIndex], // 👈 Displays selected screen dynamically
+
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        currentIndex: _currentIndex,
+        onTap: (index) => setState(() => _currentIndex = index),
+        selectedItemColor: primaryColor,
+        unselectedItemColor: subtextColor,
+        backgroundColor: cardColor,
+        elevation: 8,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+          BottomNavigationBarItem(icon: Icon(Icons.key), label: 'Rentals'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_2_outlined),
+            label: 'Profile',
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class RentalsScreen extends StatelessWidget {
+  const RentalsScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return const Center(child: Text('🚗 Rentals Screen'));
+  }
+}
+
+class UserProfileScreen extends StatelessWidget {
+  const UserProfileScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return const Center(child: Text('⚙️ User Profie Screen'));
+  }
+}
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -109,7 +175,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final subtextColor = _getColor(isDark: isDark, colorKey: 'subtext');
     final primaryColor = _getColor(isDark: isDark, colorKey: 'primary');
     final cardColor = _getColor(isDark: isDark, colorKey: 'card');
- final theme2 = Theme.of(context);
+    final theme2 = Theme.of(context);
     final isDark2 = theme2.brightness == Brightness.dark;
 
     final backgroundColor2 = isDark
@@ -342,265 +408,254 @@ class _HomeScreenState extends State<HomeScreen> {
                       color: textColor,
                     ),
                   ),
-                 
 
-           
-            GridView.count(
-              crossAxisCount: 3,
-              crossAxisSpacing: 12,
-              mainAxisSpacing: 12,
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              childAspectRatio: 1,
-              children: [
-                _cardWrapper(
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Icon(Icons.map, color: primaryColor2, ),
-                      SizedBox(height: 8),
-                      Text(
-                        "Unlimited Kilometers",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 12),
+                  GridView.count(
+                    crossAxisCount: 3,
+                    crossAxisSpacing: 12,
+                    mainAxisSpacing: 12,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    childAspectRatio: 1,
+                    children: [
+                      _cardWrapper(
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Icon(Icons.map, color: primaryColor2),
+                            SizedBox(height: 8),
+                            Text(
+                              "Unlimited Kilometers",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 12),
+                            ),
+                          ],
+                        ),
+                        cardColor2,
+                      ),
+                      _cardWrapper(
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Icon(Icons.location_on, color: primaryColor2),
+                            SizedBox(height: 8),
+                            Text(
+                              "Car return in another branch",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 12),
+                            ),
+                          ],
+                        ),
+                        cardColor2,
+                      ),
+
+                      _buildAddOnCard(
+                        context,
+                        icon: Icons.directions_car,
+                        badgeIcon: Icons.verified,
+                        title: 'Full Insurance',
+                        iconColor: primaryColor,
+                        badgeColor: primaryColor,
+                        hasBadge: true,
+                        badgePosition: Alignment.topRight,
+                        badgeSize: 24,
+                      ),
+
+                      _cardWrapper(
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Icon(Icons.child_care, color: primaryColor2),
+                            SizedBox(height: 8),
+                            Text(
+                              'Child Car seat',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 12),
+                            ),
+                          ],
+                        ),
+                        cardColor2,
+                      ),
+
+                      _cardWrapper(
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Icon(Icons.public, color: primaryColor2),
+                            SizedBox(height: 8),
+                            Text(
+                              'GCC border fee',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 12),
+                            ),
+                          ],
+                        ),
+                        cardColor2,
+                      ),
+                      _buildAddOnCard(
+                        context,
+                        icon: Icons.directions_car,
+                        badgeIcon: Icons.add_circle,
+                        title: 'Extra driver',
+                        iconColor: isDark
+                            ? const Color(0xFFD1D5DB)
+                            : const Color(0xFF374151),
+                        badgeColor: primaryColor,
+                        hasBadge: true,
+                        badgePosition: Alignment.topRight,
+                        badgeSize: 20,
+                        badgeBackground: isDark
+                            ? const Color(0xFF1F2937)
+                            : Colors.white,
                       ),
                     ],
                   ),
-                  cardColor2,
-                ),
-                _cardWrapper(
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Icon(Icons.location_on, color: primaryColor2),
-                      SizedBox(height: 8),
-                      Text(
-                        "Car return in another branch",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 12),
-                      ),
-                    ],
-                  ),
-                  cardColor2,
-                ),
 
-                 _buildAddOnCard(
-                context,
-                icon: Icons.directions_car,
-                badgeIcon: Icons.verified,
-                title: 'Full Insurance',
-                iconColor: primaryColor,
-                badgeColor: primaryColor,
-                hasBadge: true,
-                badgePosition: Alignment.topRight,
-                badgeSize: 24,
-              ),
-               
-                  _cardWrapper(
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Icon( Icons.child_care, color: primaryColor2),
-                      SizedBox(height: 8),
-                      Text(
-                      'Child Car seat',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 12),
-                      ),
-                    ],
-                  ),
-                  cardColor2,
-                ),
+                  const SizedBox(height: 24),
 
-
-                  _cardWrapper(
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Icon( Icons.public, color: primaryColor2),
-                      SizedBox(height: 8),
-                      Text(
-                      'GCC border fee',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 12),
-                      ),
-                    ],
-                  ),
-                  cardColor2,
-                ),
-                _buildAddOnCard(
-                context,
-                icon: Icons.directions_car,
-                badgeIcon: Icons.add_circle,
-                title: 'Extra driver',
-                iconColor: isDark ? const Color(0xFFD1D5DB) : const Color(0xFF374151),
-                badgeColor: primaryColor,
-                hasBadge: true,
-                badgePosition: Alignment.topRight,
-                badgeSize: 20,
-                badgeBackground: isDark ? const Color(0xFF1F2937) : Colors.white,
-              ),
-               
-               
-              ],
-            ),
-      
-            const SizedBox(height: 24),
-      
-            // Coupon Section
-            Text(
-              "Do you have a coupon?",
-              style: TextStyle(
-                fontFamily: 'Changa',
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: textColor2,
-              ),
-            ),
-            const SizedBox(height: 12),
-            Container(
-              decoration: BoxDecoration(
-                color: cardColor2,
-                borderRadius: BorderRadius.circular(16),
-              ),
-              padding: const EdgeInsets.symmetric(
-                horizontal: 12,
-                vertical: 4,
-              ),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Add coupon here',
-                        hintStyle: TextStyle(color: subTextColor2),
-                        border: InputBorder.none,
-                      ),
+                  // Coupon Section
+                  Text(
+                    "Do you have a coupon?",
+                    style: TextStyle(
+                      fontFamily: 'Changa',
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: textColor2,
                     ),
                   ),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: primaryColor2,
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 24,
-                        vertical: 12,
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(32),
-                      ),
-                    ),
-                    onPressed: () {},
-                    child: const Text(
-                      "APPLY",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-      
-            const SizedBox(height: 24),
-      
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Search By Map",
-                  style: theme2.textTheme.headlineSmall?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: theme2.colorScheme.onBackground,
-                ),
-                ),
-                Row(
-                  children: [
-                    Text("Riyadh", style: TextStyle(color: subTextColor2)),
-                    const Icon(Icons.arrow_drop_down, color: Colors.grey),
-                  ],
-                ),
-              ],
-            ),
-            const SizedBox(height: 12),
-            
-              Stack(
-                children: [
+                  const SizedBox(height: 12),
                   Container(
-                    height: 225,
                     decoration: BoxDecoration(
+                      color: cardColor2,
                       borderRadius: BorderRadius.circular(16),
-                      boxShadow: [
-                        BoxShadow(
-                          // color: Colors.black.withOpacity(0.1),
-                          blurRadius: 12,
-                          offset: const Offset(0, 4),
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 4,
+                    ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: TextField(
+                            decoration: InputDecoration(
+                              hintText: 'Add coupon here',
+                              hintStyle: TextStyle(color: subTextColor2),
+                              border: InputBorder.none,
+                            ),
+                          ),
+                        ),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: primaryColor2,
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 24,
+                              vertical: 12,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(32),
+                            ),
+                          ),
+                          onPressed: () {},
+                          child: const Text(
+                            "APPLY",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
                       ],
-                      image: const DecorationImage(
-                        image: NetworkImage(
-                          'https://lh3.googleusercontent.com/aida-public/AB6AXuCVpYGjp6K4X0QPv2KegBuCIQvTVnuToZfwe1U2RX4UxtbRHPbUfuBVRUvy7-Ag9x--iuKnlmwGN0bFDERK0J_PNxeZp7wD3gtPEqIQNLgYSxWayoMXvZbtGG1-tLzCu7jhbjZ1UeDi4qzBC6KK-Tgi93S6Sc_T2anQtLaLbRX2VAI-qKqM4iFhLw8PSMTevVNI9lKdu6i9D2Jz6OaAdPVjeLZ4d1ONby1vRKmO4IaDmPLt626L-DB29PxDEV0OHzXffxf_CqZf34LB',
-                        ),
-                        fit: BoxFit.cover,
-                      ),
                     ),
                   ),
-              
-                  Positioned(
-                    bottom: 16,
-                    left: 0,
-                    right: 0,
-                    child: Center(
-                      child: ElevatedButton(
-                        onPressed: () {}, // Placeholder
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: primaryColor,
-                          foregroundColor: Colors.white,
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 32,
-                            vertical: 12,
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(24),
-                          ),
-                          elevation: 4,
+
+                  const SizedBox(height: 24),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Search By Map",
+                        style: theme2.textTheme.headlineSmall?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: theme2.colorScheme.onBackground,
                         ),
-                        child: const Text(
-                          'View on Map',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            "Riyadh",
+                            style: TextStyle(color: subTextColor2),
+                          ),
+                          const Icon(Icons.arrow_drop_down, color: Colors.grey),
+                        ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 12),
+
+                  Stack(
+                    children: [
+                      Container(
+                        height: 225,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16),
+                          boxShadow: [
+                            BoxShadow(
+                              // color: Colors.black.withOpacity(0.1),
+                              blurRadius: 12,
+                              offset: const Offset(0, 4),
+                            ),
+                          ],
+                          image: const DecorationImage(
+                            image: NetworkImage(
+                              'https://lh3.googleusercontent.com/aida-public/AB6AXuCVpYGjp6K4X0QPv2KegBuCIQvTVnuToZfwe1U2RX4UxtbRHPbUfuBVRUvy7-Ag9x--iuKnlmwGN0bFDERK0J_PNxeZp7wD3gtPEqIQNLgYSxWayoMXvZbtGG1-tLzCu7jhbjZ1UeDi4qzBC6KK-Tgi93S6Sc_T2anQtLaLbRX2VAI-qKqM4iFhLw8PSMTevVNI9lKdu6i9D2Jz6OaAdPVjeLZ4d1ONby1vRKmO4IaDmPLt626L-DB29PxDEV0OHzXffxf_CqZf34LB',
+                            ),
+                            fit: BoxFit.cover,
                           ),
                         ),
                       ),
-                    ),
-                  ),], ), 
-            
-            const SizedBox(height: 80),
+
+                      Positioned(
+                        bottom: 16,
+                        left: 0,
+                        right: 0,
+                        child: Center(
+                          child: ElevatedButton(
+                            onPressed: () {}, // Placeholder
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: primaryColor,
+                              foregroundColor: Colors.white,
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 32,
+                                vertical: 12,
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(24),
+                              ),
+                              elevation: 4,
+                            ),
+                            child: const Text(
+                              'View on Map',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  const SizedBox(height: 80),
                 ],
               ),
             ),
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _currentIndex,
-        onTap: (index) => setState(() => _currentIndex = index),
-        selectedItemColor: primaryColor,
-        unselectedItemColor: subtextColor,
-        backgroundColor: cardColor,
-        elevation: 8,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
-          BottomNavigationBarItem(icon: Icon(Icons.key), label: 'Rentals'),
-          BottomNavigationBarItem(icon: Icon(Icons.more_horiz), label: 'More'),
-        ],
-      ),
     );
   }
+
   Widget _cardWrapper(Widget child, Color cardColor) {
     return Container(
       decoration: BoxDecoration(
@@ -612,7 +667,8 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Center(child: child),
     );
   }
-   Widget _buildAddOnCard(
+
+  Widget _buildAddOnCard(
     BuildContext context, {
     required IconData icon,
     IconData? badgeIcon,
@@ -627,18 +683,20 @@ class _HomeScreenState extends State<HomeScreen> {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
     final cardColor = isDark ? const Color(0xFF1F2937) : Colors.white;
-    final textColor = isDark ? const Color(0xFFF3F4F6) : const Color(0xFF1F2937);
+    final textColor = isDark
+        ? const Color(0xFFF3F4F6)
+        : const Color(0xFF1F2937);
 
     return SizedBox(
-
       child: DecoratedBox(
-        decoration:
-        BoxDecoration(
+        decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 4)],
-           borderRadius: BorderRadius.circular(12), // 1rem ~ 16px, but adjusted for card
-        ), 
-        
+          borderRadius: BorderRadius.circular(
+            12,
+          ), // 1rem ~ 16px, but adjusted for card
+        ),
+
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -647,11 +705,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Stack(
                 alignment: badgePosition,
                 children: [
-                  Icon(
-                    icon,
-                    size: 48,
-                    color: iconColor,
-                  ),
+                  Icon(icon, size: 48, color: iconColor),
                   if (hasBadge)
                     Container(
                       padding: const EdgeInsets.all(2),
