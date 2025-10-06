@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../car_search/car_search_screen.dart';
+import '../profile/user_profile_screem.dart';
+import '../rentals/rentals_screen.dart';
 
 class MainNavigation extends StatefulWidget {
   const MainNavigation({super.key});
@@ -47,22 +49,6 @@ class _MainNavigationState extends State<MainNavigation> {
         ],
       ),
     );
-  }
-}
-
-class RentalsScreen extends StatelessWidget {
-  const RentalsScreen({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: Text('🚗 Rentals Screen'));
-  }
-}
-
-class UserProfileScreen extends StatelessWidget {
-  const UserProfileScreen({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: Text('⚙️ User Profie Screen'));
   }
 }
 
