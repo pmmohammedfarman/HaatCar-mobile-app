@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../car_search/car_search_screen.dart';
 import '../profile/user_profile_screem.dart';
 import '../rentals/rentals_screen.dart';
+import '../widgets/change_location_bottom_modal_sheet.dart';
 
 class MainNavigation extends StatefulWidget {
   const MainNavigation({super.key});
@@ -565,14 +566,19 @@ class _HomeScreenState extends State<HomeScreen> {
                           color: theme2.colorScheme.onBackground,
                         ),
                       ),
-                      Row(
-                        children: [
-                          Text(
-                            "Riyadh",
-                            style: TextStyle(color: subTextColor2),
+                      GestureDetector(
+                        onTap: () => showChooseLocationSheet(context), 
+                        child: SizedBox(
+                          child: Row(
+                            children: [
+                              Text(
+                                "Riyadh",
+                                style: TextStyle(color: subTextColor2),
+                              ),
+                              const Icon(Icons.arrow_drop_down, color: Colors.grey),
+                            ],
                           ),
-                          const Icon(Icons.arrow_drop_down, color: Colors.grey),
-                        ],
+                        ),
                       ),
                     ],
                   ),
