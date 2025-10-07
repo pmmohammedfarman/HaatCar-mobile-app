@@ -10,21 +10,21 @@ class CarSearchResults extends StatelessWidget {
         'title': 'Suzuki Dzire',
         'subtitle': '2023 or similar car',
         'image':
-            'https://lh3.googleusercontent.com/aida-public/AB6AXuAdotUuxnbyBDeikajziMhhGaIbVxHP-h8aHjrblbHSrqlZk7iokgY59DZ3GaOxx1ydYeYG_sBROljA7Xl2ckINMxRXJVpmEiDaMRjZmE5HCrLFqPckel69zo444K8woEPLlLs1Jx7k_rUK-CsDDwYRhcRM66YFurctDuYtqabxmVOtpV2ZDMsrox5TnxPBZA62ZtClt4GgkGZFcvMacmpv6L2z5gjY2ebrhse3BQCXO1Im_e1iLZPbW10ew1xsINw-3MDWhqeC3FDQ',
+           "assets/images/search/car_one.png", 
         'price': '73',
       },
       {
         'title': 'Kia Pegas',
         'subtitle': '2022 or similar car',
-        'image':
-            'https://lh3.googleusercontent.com/aida-public/AB6AXuCDP4dTP3fkkQxhRDjLpAPnZiym9imLAgu8-HjgIsv_SwTDIfE3RLREhA0A3_GuIhcxA7s5luYFWUHLH4NilUL9sjUOnk-3GtAAO0eQYvUs13M_ae9VtJOOtga3S9oPBPguCf3JaoLK1GH96Ca5MVi7SbS03Byj7hwpEWb5nf5dG4cSVurwUB4mthlWTfk8wEnSXlGtpM8nYaspdNsrhz0bRwBZxXRA0VHoQjcn7W1yDLSWQ8sZ-_amlW-IYAC0zsATGHxsXvmh0B2E',
+                'image':
+           "assets/images/search/car_two.png", 
         'price': '75',
       },
       {
         'title': 'Nissan Sunny Classic',
         'subtitle': '2022 or similar car',
         'image':
-            'https://lh3.googleusercontent.com/aida-public/AB6AXuAPtONP8QMMkZDhveewcVh63qVFMrvTYbqhbiNJ3CShepvPJGrNjVLoTpuPr8ACeQqAtiVT-kNtJT0twyhVZS911enR0abmdpKQ3Zv4Kxw3PdDTrRbuiMZHoUgtFNA49DZ9s5iQ3nKjfnfkV--5ajsXP-rqEvN8b5yNhiO7iKN4mCsRNMJu4rM8nV07hbBJEiiQ-wQMXILjl620mZNJobLninpeOz1_71BWKPOSLZ4XGsblVu4IGlqD-Ci9lxQakrtQToApiP4KSSbQ',
+           "assets/images/search/car_three.png", 
         'price': '75',
       },
     ];
@@ -91,7 +91,7 @@ class CarSearchResults extends StatelessWidget {
           children: [
             // Header
             // Car List
-            Expanded(
+            Positioned.fill(
               child: ListView.builder(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 16,
@@ -198,7 +198,7 @@ class CarCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.network(
+          Image.asset(
             imageUrl,
             height: 160,
             width: double.infinity,

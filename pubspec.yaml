@@ -78,6 +78,14 @@ flutter:
   assets:
      - assets/images/onboarding/ready_to_go_image.png
      - assets/images/onboarding/welcome_image.png
+     - assets/images/home/main_placeholder.png
+     - assets/images/home/map_image.png
+     - assets/images/search/car_one.png
+     - assets/images/search/car_two.png
+     - assets/images/search/car_three.png
+     - assets/images/search/search_screen_bg.png
+
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

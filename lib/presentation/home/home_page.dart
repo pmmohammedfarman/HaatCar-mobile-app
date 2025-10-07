@@ -102,10 +102,10 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       child: ListTile(
         onTap: () {
-          if(title == 'Airports') {
-showChooseAirportSheet(context);
+          if (title == 'Airports') {
+            showChooseAirportSheet(context);
           }
-          // 
+          //
         },
         trailing: Icon(icon, color: primaryColor, size: 32),
         title: Text(
@@ -249,8 +249,8 @@ showChooseAirportSheet(context);
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(16),
                               image: DecorationImage(
-                                image: NetworkImage(
-                                  "https://lh3.googleusercontent.com/aida-public/AB6AXuBe7j7LVFzWDJfNIfAK_f_836-cu9wyFKpQ3DnaYnbSkvKR7tGmPimsTA9vWH4ipIaj5d4Q34bkVPXyhJ2FJMv0VI5ajU_Pi-nj1orchFE2nRj4XzJAJyIJSaGum1I4-d7ya4HQcfg4sjtIUssrl11Bc1VfNKU_jr6Xvfxg9gk85mZq3Fk_npmGzEesxBH5dayX9jBpmkqArhr-b6yRi0cOnX9VPYxnZc5r6pL58om5QztYdlyJ_VNeOWtudH_GMg21BrfGvNr7hKQ",
+                                image: AssetImage(
+                                  "assets/images/home/main_placeholder.png",
                                 ),
                                 fit: BoxFit.cover,
                                 alignment: Alignment.center,
@@ -573,7 +573,7 @@ showChooseAirportSheet(context);
                         ),
                       ),
                       GestureDetector(
-                        onTap: () => showChooseLocationSheet(context), 
+                        onTap: () => showChooseLocationSheet(context),
                         child: SizedBox(
                           child: Row(
                             children: [
@@ -581,7 +581,10 @@ showChooseAirportSheet(context);
                                 "Riyadh",
                                 style: TextStyle(color: subTextColor2),
                               ),
-                              const Icon(Icons.arrow_drop_down, color: Colors.grey),
+                              const Icon(
+                                Icons.arrow_drop_down,
+                                color: Colors.grey,
+                              ),
                             ],
                           ),
                         ),
@@ -604,8 +607,8 @@ showChooseAirportSheet(context);
                             ),
                           ],
                           image: const DecorationImage(
-                            image: NetworkImage(
-                              'https://lh3.googleusercontent.com/aida-public/AB6AXuCVpYGjp6K4X0QPv2KegBuCIQvTVnuToZfwe1U2RX4UxtbRHPbUfuBVRUvy7-Ag9x--iuKnlmwGN0bFDERK0J_PNxeZp7wD3gtPEqIQNLgYSxWayoMXvZbtGG1-tLzCu7jhbjZ1UeDi4qzBC6KK-Tgi93S6Sc_T2anQtLaLbRX2VAI-qKqM4iFhLw8PSMTevVNI9lKdu6i9D2Jz6OaAdPVjeLZ4d1ONby1vRKmO4IaDmPLt626L-DB29PxDEV0OHzXffxf_CqZf34LB',
+                            image: AssetImage(
+                              "assets/images/home/map_image.png",
                             ),
                             fit: BoxFit.cover,
                           ),

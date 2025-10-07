@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class Airport {
   final String name;
@@ -79,8 +80,6 @@ class ChooseAirportBottomModalSheet extends StatelessWidget {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
 
-    
-
     return SafeArea(
       child: SizedBox(
         height: MediaQuery.of(context).size.height * 0.9,
@@ -140,16 +139,16 @@ class ChooseAirportBottomModalSheet extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 itemCount: airportsList.length,
                 separatorBuilder: (context, index) => Divider(
-      color: Colors.grey.shade300,
-      thickness: 1,
-      height: 4,
-    ),
+                  color: Colors.grey.shade300,
+                  thickness: 1,
+                  height: 4,
+                ),
                 itemBuilder: (context, index) {
                   return ListTile(
-                    
-                    trailing: Icon(Icons.arrow_forward_ios_sharp, 
-                    color: Colors.grey.shade400,
-                    size: 20,
+                    trailing: Icon(
+                      Icons.arrow_forward_ios_sharp,
+                      color: Colors.grey.shade400,
+                      size: 20,
                     ),
                     contentPadding: EdgeInsets.zero,
                     leading: Container(
@@ -172,19 +171,19 @@ class ChooseAirportBottomModalSheet extends StatelessWidget {
                     title: Text(
                       airportsList[index].name,
                       style: TextStyle(
-                        color:Colors.black87, 
-                        fontWeight: FontWeight.w600
+                        color: Colors.black87,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                     subtitle: Text(
                       airportsList[index].location,
                       style: TextStyle(
-                        color:  Colors.grey[500], 
-                         fontWeight: FontWeight.w500
+                        color: Colors.grey[500],
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                     onTap: () {
-                      Navigator.pop(context, airportsList[index].name);
+                      context.push("/car_search_results");
                     },
                   );
                 },

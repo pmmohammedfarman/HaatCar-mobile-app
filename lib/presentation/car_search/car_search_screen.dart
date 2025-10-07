@@ -157,14 +157,14 @@ class _CarwahHomeState extends State<CarwahHome> {
         children: [
           /// Top background image with gradient
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.325,
+            height: MediaQuery.of(context).size.height * 0.375,
             width: double.infinity,
             child: DecoratedBox(
               decoration: BoxDecoration(
                 image: const DecorationImage(
                   fit: BoxFit.cover,
-                  image: NetworkImage(
-                    'https://lh3.googleusercontent.com/aida-public/AB6AXuDx-f5m1UWBhQFyQtE3oxECgieR8buQ4w7cZ5XGlOP5d4WX8OerQeB9qQxJfyacMRFpEJedSHTCiK2VbY8kkBNo6ScmT_56u0cpwpdUie7lFFUg2_HOWO7j3yx4--f8nU_RLplO3jR32EJnRU3-kVW8QW3XnQkqeyqno6rCbcxiDFFgrF5v96wbkIwvLP0kOZqDnGQGSDJG0-9ofr9b9jJiIdm81saB0GO16dNLkk9huKDXY_7XODCkzafdq2DaK7bmnQnGoAoUgMXd',
+                  image: AssetImage(
+                   'assets/images/search/search_screen_bg.png', 
                   ),
                 ),
                 gradient: const LinearGradient(
