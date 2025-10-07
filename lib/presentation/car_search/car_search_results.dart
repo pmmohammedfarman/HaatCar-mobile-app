@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/filter_bottom_modal_sheet.dart';
+import 'car_search_by_map_screen.dart';
 
 class CarSearchResults extends StatelessWidget {
   const CarSearchResults({super.key});
@@ -159,7 +160,14 @@ class CarSearchResults extends StatelessWidget {
                         color: Colors.white.withOpacity(0.5),
                       ),
                       TextButton.icon(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context)
+                          .push(
+                            MaterialPageRoute(builder: 
+                            (context) => CarSearchByMapScreen()
+                            )
+                          );
+                        },
                         icon: const Icon(Icons.map, color: Colors.white),
                         label: const Text(
                           'Map',
