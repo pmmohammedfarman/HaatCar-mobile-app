@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:haat_car/application/locale_provider.dart';
 import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/style.dart';
 
@@ -9,6 +10,9 @@ class OtpScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    String imagePath = ref.watch(localeProvider).value == Locale("en")
+        ? "assets/images/haatcar_logo_en.png"
+        : "assets/images/haatcar_logo_ar.png";
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -30,10 +34,10 @@ class OtpScreen extends ConsumerWidget {
                 children: [
                   SizedBox(height: 50),
                   Image.asset(
-                    "assets/images/logo.png",
-                    width: 200,
-                    height: 112.28,
-                    fit: BoxFit.contain,
+                    imagePath,
+                    width: 200*3000/1680, 
+                    height: 200, 
+                  fit: BoxFit.cover,
                   ),
                   SizedBox(height: 30),
                   Column(
@@ -80,9 +84,7 @@ class OtpScreen extends ConsumerWidget {
                                   context.push('/register_user_screen');
                                 },
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: const Color(
-                                    0xFFF2740D,
-                                  ), 
+                                  backgroundColor: const Color(0xFFF2740D),
                                   foregroundColor: Colors.white,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(

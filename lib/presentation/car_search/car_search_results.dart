@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/filter_bottom_modal_sheet.dart';
+
 class CarSearchResults extends StatelessWidget {
   const CarSearchResults({super.key});
 
@@ -139,7 +141,9 @@ class CarSearchResults extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       TextButton.icon(
-                        onPressed: () {},
+                        onPressed: () {
+                          showFilterBottomSheet(context);
+                        },
                         icon: const Icon(
                           Icons.filter_list,
                           color: Colors.white,

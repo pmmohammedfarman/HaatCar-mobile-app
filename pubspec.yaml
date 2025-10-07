@@ -84,6 +84,8 @@ flutter:
      - assets/images/search/car_two.png
      - assets/images/search/car_three.png
      - assets/images/search/search_screen_bg.png
+     - assets/images/haatcar_logo_ar.png
+     - assets/images/haatcar_logo_en.png
 
 
 
