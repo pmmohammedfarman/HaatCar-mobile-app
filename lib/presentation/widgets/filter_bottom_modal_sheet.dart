@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:haat_car/presentation/widgets/filter_by_make_bottom_modal_sheet.dart';
 
+import 'filter_by_extra_services_bottom_modal_sheet.dart';
+
 void showFilterBottomSheet(BuildContext context) {
   final isDark = Theme.of(context).brightness == Brightness.dark;
 
@@ -147,7 +149,9 @@ void showFilterBottomSheet(BuildContext context) {
                       child: navigationButton("Make"),
                     ),
                     navigationButton("Model"),
-                    navigationButton("Extra Services"),
+                    GestureDetector(
+                      onTap: () => showExtraServicesBottomSheet(context), 
+                      child: navigationButton("Extra Services")),
                     const SizedBox(height: 16),
                     filterSection("Insurance", ["All", "Full"]),
                     const SizedBox(height: 16),
