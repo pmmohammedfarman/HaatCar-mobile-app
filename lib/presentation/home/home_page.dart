@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:haat_car/presentation/widgets/choose_airport_bottom_modal_sheet.dart';
 import '../car_search/car_search_screen.dart';
 import '../profile/user_profile_screem.dart';
@@ -104,8 +105,11 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: () {
           if (title == 'Airports') {
             showChooseAirportSheet(context);
+          } else if (title == 'Pick-up') {
+            context.push("/car_search_results");
+          } else if (title == 'Instant') {
+            context.push("/car_search_results");
           }
-          //
         },
         trailing: Icon(icon, color: primaryColor, size: 32),
         title: Text(
@@ -134,28 +138,31 @@ class _HomeScreenState extends State<HomeScreen> {
     final textColor = _getColor(isDark: isDark, colorKey: 'text');
     final primaryColor = _getColor(isDark: isDark, colorKey: 'primary');
 
-    return Container(
-      width: 128,
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: cardColor,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(icon, color: primaryColor, size: 48),
-          const SizedBox(height: 8),
-          Text(
-            type,
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              fontSize: 14,
-              color: textColor,
+    return GestureDetector(
+      onTap: () => context.push("/car_search_results"),
+      child: Container(
+        width: 128,
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: cardColor,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon, color: primaryColor, size: 48),
+            const SizedBox(height: 8),
+            Text(
+              type,
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 14,
+                color: textColor,
+              ),
+              textAlign: TextAlign.center,
             ),
-            textAlign: TextAlign.center,
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -301,44 +308,48 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   const SizedBox(height: 24),
                   // Offers Section
-                  Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                      color: cardColor,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Offers & Rental Packages',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16,
-                                  color: textColor,
+                  GestureDetector
+                  (
+                    onTap: () =>  context.push("/car_search_results"),
+                    child: Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        color: cardColor,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Offers & Rental Packages',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                    color: textColor,
+                                  ),
                                 ),
-                              ),
-                              const SizedBox(height: 4),
-                              Text(
-                                'Designed to meet your needs',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  color: subtextColor,
+                                const SizedBox(height: 4),
+                                Text(
+                                  'Designed to meet your needs',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: subtextColor,
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                        Icon(
-                          Icons.calendar_month,
-                          color: primaryColor,
-                          size: 32,
-                        ),
-                      ],
+                          Icon(
+                            Icons.calendar_month,
+                            color: primaryColor,
+                            size: 32,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   const SizedBox(height: 24),
@@ -392,7 +403,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
 
                   const SizedBox(height: 24),
-                  // Search by Vehicle Type
                   Text(
                     'Search By Service',
                     style: TextStyle(
@@ -658,14 +668,18 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _cardWrapper(Widget child, Color cardColor) {
-    return Container(
-      decoration: BoxDecoration(
-        color: cardColor,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 4)],
+    return GestureDetector(
+      onTap: () => context.push("/car_search_results"),
+      child: Container(
+        
+        decoration: BoxDecoration(
+          color: cardColor,
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 4)],
+        ),
+        padding: const EdgeInsets.all(12),
+        child: Center(child: child),
       ),
-      padding: const EdgeInsets.all(12),
-      child: Center(child: child),
     );
   }
 
@@ -688,51 +702,54 @@ class _HomeScreenState extends State<HomeScreen> {
         ? const Color(0xFFF3F4F6)
         : const Color(0xFF1F2937);
 
-    return SizedBox(
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 4)],
-          borderRadius: BorderRadius.circular(
-            12,
-          ), // 1rem ~ 16px, but adjusted for card
-        ),
-
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Stack(
-                alignment: badgePosition,
-                children: [
-                  Icon(icon, size: 48, color: iconColor),
-                  if (hasBadge)
-                    Container(
-                      padding: const EdgeInsets.all(2),
-                      decoration: BoxDecoration(
-                        color: badgeBackground ?? cardColor,
-                        shape: BoxShape.circle,
+    return GestureDetector(
+      onTap: () => context.push("/car_search_results"),
+      child: SizedBox(
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 4)],
+            borderRadius: BorderRadius.circular(
+              12,
+            ), // 1rem ~ 16px, but adjusted for card
+          ),
+      
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Stack(
+                  alignment: badgePosition,
+                  children: [
+                    Icon(icon, size: 48, color: iconColor),
+                    if (hasBadge)
+                      Container(
+                        padding: const EdgeInsets.all(2),
+                        decoration: BoxDecoration(
+                          color: badgeBackground ?? cardColor,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Icon(
+                          badgeIcon,
+                          size: badgeSize,
+                          color: badgeColor ?? iconColor,
+                        ),
                       ),
-                      child: Icon(
-                        badgeIcon,
-                        size: badgeSize,
-                        color: badgeColor ?? iconColor,
-                      ),
-                    ),
-                ],
-              ),
-              const SizedBox(height: 8),
-              Text(
-                title,
-                style: TextStyle(
-                  fontSize: 12, // text-sm
-                  color: textColor,
-                  fontWeight: FontWeight.w500,
+                  ],
                 ),
-                textAlign: TextAlign.center,
-              ),
-            ],
+                const SizedBox(height: 8),
+                Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 12, // text-sm
+                    color: textColor,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
           ),
         ),
       ),
