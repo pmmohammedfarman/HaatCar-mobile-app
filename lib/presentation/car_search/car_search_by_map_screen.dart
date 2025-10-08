@@ -1,6 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:haat_car/presentation/car_search/car_search_results.dart';
 
+ final carList = [
+      {
+        'title': 'Suzuki Dzire',
+        'subtitle': '2023 or similar car',
+        'image':
+           "assets/images/search/car_one.png", 
+        'price': '73',
+      },
+      {
+        'title': 'Kia Pegas',
+        'subtitle': '2022 or similar car',
+                'image':
+           "assets/images/search/car_two.png", 
+        'price': '75',
+      },
+      {
+        'title': 'Nissan Sunny Classic',
+        'subtitle': '2022 or similar car',
+        'image':
+           "assets/images/search/car_three.png", 
+        'price': '75',
+      },
+    ];
+
 class CarSearchByMapScreen extends StatelessWidget {
   const CarSearchByMapScreen({super.key});
 
@@ -17,16 +41,31 @@ class CarSearchByMapScreen extends StatelessWidget {
           ),
 
           Positioned(
-            left: MediaQuery.of(context).size.width * 0.25 / 2 + 8,
-            right: MediaQuery.of(context).size.width * 0.25 / 2 + 8,
-            bottom: MediaQuery.of(context).size.height * 0.35 - 16,
-            child: CarCardTwo(
-              title: 'Suzuki Dzire',
-              subtitle: '2023 or similar car',
-              imageUrl: "assets/images/search/car_one.png",
-              pricePerDay: '73',
-            ),
+  left: 0,
+  right: 0,
+  bottom: MediaQuery.of(context).size.height * 0.325,
+  child: SizedBox(
+    height: (MediaQuery.of(context).size.width / 4) + 110, 
+    child: ListView.builder(
+      scrollDirection: Axis.horizontal,
+      itemCount: carList.length, // replace with your actual car list
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      itemBuilder: (context, index) {
+        final car = carList[index];
+        return Padding(
+          padding: const EdgeInsets.only(right: 16),
+          child: CarCardTwo(
+            title: car['title'] ?? "",
+            subtitle: car["'subtitle'"]?? "",
+            imageUrl: car["image"]?? "",
+            pricePerDay: car["'price'"]?? "",
           ),
+        );
+      },
+    ),
+  ),
+)
+
         ],
       ),
     );

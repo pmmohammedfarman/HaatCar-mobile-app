@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:haat_car/presentation/widgets/choose_airport_bottom_modal_sheet.dart';
+import '../car_search/car_search_by_map_screen.dart';
 import '../car_search/car_search_screen.dart';
 import '../profile/user_profile_screem.dart';
 import '../rentals/rentals_screen.dart';
@@ -631,7 +632,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         right: 0,
                         child: Center(
                           child: ElevatedButton(
-                            onPressed: () {}, // Placeholder
+                            onPressed: () {
+                              Navigator.of(context)
+                          .push(
+                            MaterialPageRoute(builder: 
+                            (context) => CarSearchByMapScreen()
+                            )
+                          );
+                            }, // Placeholder
                             style: ElevatedButton.styleFrom(
                               backgroundColor: primaryColor,
                               foregroundColor: Colors.white,
