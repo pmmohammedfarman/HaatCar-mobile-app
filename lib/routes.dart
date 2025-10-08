@@ -2,6 +2,7 @@ import 'package:go_router/go_router.dart';
 import 'presentation/auth/login_screen.dart';
 import 'presentation/auth/otp_screen.dart';
 import 'presentation/auth/register_user_screen.dart';
+import 'presentation/car_search/car_details_screen.dart';
 import 'presentation/car_search/car_search_by_map_screen.dart';
 import 'presentation/car_search/car_search_results.dart';
 import 'presentation/car_search/choose_car_ally_screen.dart';
@@ -73,6 +74,12 @@ final GoRouter router = GoRouter(
       path: '/choose_car_ally_type_screen', // :id is the parameter
       builder: (context, state) {
         return ChooseCarAllyScreen(); // Pass the parameter to your page
+      },
+    ),
+    GoRoute(
+      path: '/car_item_details_screen', // :id is the parameter
+      builder: (context, state) {
+        return CarItemDetailsScreen(); // Pass the parameter to your page
       },
     ),
   ],

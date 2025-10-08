@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ChooseCarAllyScreen extends StatelessWidget {
   const ChooseCarAllyScreen({super.key});
@@ -432,7 +433,9 @@ class AllyCarWidget extends StatelessWidget {
                   bottom: 16.0,
                 ),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.push('/car_item_details_screen');
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFFF27121),
                     padding: const EdgeInsets.symmetric(vertical: 14),
