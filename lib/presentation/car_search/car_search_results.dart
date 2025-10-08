@@ -198,120 +198,124 @@ class CarCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 4,
-      clipBehavior: Clip.antiAlias,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      color: Theme.of(context).cardColor,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Image.asset(
-            imageUrl,
-            height: 160,
-            width: double.infinity,
-            fit: BoxFit.cover,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(12),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: Theme.of(
-                    context,
-                  ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  subtitle,
-                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    color: Theme.of(
-                      context,
-                    ).textTheme.bodySmall?.color!.withOpacity(0.7),
-                  ),
-                ),
-                const SizedBox(height: 12),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Row(
-                      children: [
-                        Icon(Icons.settings, size: 18),
-                        SizedBox(width: 4),
-                        Text('AT'),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Icon(Icons.directions_car, size: 18),
-                        SizedBox(width: 4),
-                        Text('Economy'),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
+    return GestureDetector(
+      onTap: () => context.push('/choose_car_ally_type_screen'),
+      child: Card(
+        
+        elevation: 4,
+        clipBehavior: Clip.antiAlias,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        color: Theme.of(context).cardColor,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Image.asset(
+              imageUrl,
+              height: 160,
+              width: double.infinity,
+              fit: BoxFit.cover,
             ),
-          ),
-          Container(
-            color: Theme.of(context).brightness == Brightness.light
-                ? Colors.grey[100]
-                : Colors.grey[800],
-            padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SizedBox(width: 16),
-                Expanded(
-                  child: Text(
-                    'Available at 7 branches',
+            Padding(
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: Theme.of(
+                      context,
+                    ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    subtitle,
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      fontWeight: FontWeight.w600,
+                      color: Theme.of(
+                        context,
+                      ).textTheme.bodySmall?.color!.withOpacity(0.7),
                     ),
                   ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFF2740D),
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(16.0),
-                      topRight: Radius.circular(0),
-                      bottomLeft: Radius.circular(0),
-                      bottomRight: Radius.circular(16.0),
-                    ),
-                  ),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 10,
-                    vertical: 10,
-                  ),
-                  child: Column(
-                    children: [
-                      Text(
-                        'SAR $pricePerDay',
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                          color: Colors.white,
-                        ),
+                  const SizedBox(height: 12),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const [
+                      Row(
+                        children: [
+                          Icon(Icons.settings, size: 18),
+                          SizedBox(width: 4),
+                          Text('AT'),
+                        ],
                       ),
-
-                      Text(
-                        ' / day',
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
+                      Row(
+                        children: [
+                          Icon(Icons.directions_car, size: 18),
+                          SizedBox(width: 4),
+                          Text('Economy'),
+                        ],
                       ),
                     ],
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
+            Container(
+              color: Theme.of(context).brightness == Brightness.light
+                  ? Colors.grey[100]
+                  : Colors.grey[800],
+              padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(width: 16),
+                  Expanded(
+                    child: Text(
+                      'Available at 7 branches',
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFF2740D),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(16.0),
+                        topRight: Radius.circular(0),
+                        bottomLeft: Radius.circular(0),
+                        bottomRight: Radius.circular(16.0),
+                      ),
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 10,
+                    ),
+                    child: Column(
+                      children: [
+                        Text(
+                          'SAR $pricePerDay',
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            color: Colors.white,
+                          ),
+                        ),
+      
+                        Text(
+                          ' / day',
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
