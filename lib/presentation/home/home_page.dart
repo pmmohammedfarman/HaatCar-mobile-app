@@ -633,12 +633,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Center(
                           child: ElevatedButton(
                             onPressed: () {
-                              Navigator.of(context)
-                          .push(
-                            MaterialPageRoute(builder: 
-                            (context) => CarSearchByMapScreen()
-                            )
-                          );
+                             context.push('/car_search_via_map_screen');
                             }, // Placeholder
                             style: ElevatedButton.styleFrom(
                               backgroundColor: primaryColor,

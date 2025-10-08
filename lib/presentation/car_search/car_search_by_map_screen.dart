@@ -58,7 +58,7 @@ class CarSearchByMapScreen extends StatelessWidget {
             title: car['title'] ?? "",
             subtitle: car["'subtitle'"]?? "",
             imageUrl: car["image"]?? "",
-            pricePerDay: car["'price'"]?? "",
+            pricePerDay: car["price"]?? "",
           ),
         );
       },
