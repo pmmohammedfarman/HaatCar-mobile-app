@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:haat_car/presentation/widgets/select_language_bottom_modsl_sheet.dart';
 
 
 class UserProfileScreen extends StatelessWidget {
@@ -80,13 +81,16 @@ class UserProfileScreen extends StatelessWidget {
             const SizedBox(height: 20),
 
             // Settings list
-            _MoreItem(
-              icon: Icons.settings,
-              title: 'Settings',
-              subtitle: 'Language',
-              cardColor: cardColor,
-              textColor: textColor,
-              subtextColor: subtextColor,
+            GestureDetector(
+              onTap: () => showSelectLanguageMaterialBottomSheet(context),
+              child: _MoreItem(
+                icon: Icons.settings,
+                title: 'Settings',
+                subtitle: 'Language',
+                cardColor: cardColor,
+                textColor: textColor,
+                subtextColor: subtextColor,
+              ),
             ),
             _MoreItem(
               icon: Icons.directions_car,
