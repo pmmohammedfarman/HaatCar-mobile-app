@@ -100,13 +100,16 @@ class UserProfileScreen extends StatelessWidget {
               textColor: textColor,
               subtextColor: subtextColor,
             ),
-            _MoreItem(
-              icon: Icons.account_balance_wallet,
-              title: 'Wallet',
-              subtitle: 'Jhs 0',
-              cardColor: cardColor,
-              textColor: textColor,
-              subtextColor: subtextColor,
+            GestureDetector(
+              onTap: () => context.push('/wallet_Screen'),
+              child: _MoreItem(
+                icon: Icons.account_balance_wallet,
+                title: 'Wallet',
+                subtitle: 'Jhs 0',
+                cardColor: cardColor,
+                textColor: textColor,
+                subtextColor: subtextColor,
+              ),
             ),
             _MoreItem(
               icon: Icons.headset_mic,

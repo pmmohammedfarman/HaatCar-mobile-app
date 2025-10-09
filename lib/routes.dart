@@ -10,7 +10,12 @@ import 'presentation/home/home_page.dart';
 import 'presentation/onboarding_screens/onboarding_features_screen.dart';
 import 'presentation/onboarding_screens/onboarding_welcome_screen.dart';
 import 'presentation/onboarding_screens/ready_to_go_screen.dart';
-import 'presentation/profile/user_info_screen.dart';
+import 'presentation/profile/user_info/user_info_screen.dart';
+import 'presentation/profile/wallet/add_cash_screen.dart';
+import 'presentation/profile/wallet/add_new_payment_method_screen.dart';
+import 'presentation/profile/wallet/edit_new_payment_method_screen.dart';
+import 'presentation/profile/wallet/payment_methods_list_screen.dart';
+import 'presentation/profile/wallet/wallet_screen.dart';
 
 final GoRouter router = GoRouter(
   routes: <RouteBase>[
@@ -92,6 +97,37 @@ final GoRouter router = GoRouter(
         return UserInfoScreen(); // Pass the parameter to your page
       },
     ),
+    GoRoute(
+      path: '/wallet_Screen', // :id is the parameter
+      builder: (context, state) {
+        return WalletScreen(); // Pass the parameter to your page
+      },
+    ),
+    GoRoute(
+      path: '/payment_methods_screen', // :id is the parameter
+      builder: (context, state) {
+        return PaymentMethodsScreen(); // Pass the parameter to your page
+      },
+    ),
+    GoRoute(
+      path: '/edit_payment_methods_screen', // :id is the parameter
+      builder: (context, state) {
+        return EditPaymentMethodPage(); // Pass the parameter to your page
+      },
+    ),
+    GoRoute(
+      path: '/add_payment_methods_screen', // :id is the parameter
+      builder: (context, state) {
+        return AddPaymentMethodPage(); // Pass the parameter to your page
+      },
+    ),
+    GoRoute(
+      path: '/add_cash_screen', // :id is the parameter
+      builder: (context, state) {
+        return AddCashPage(); // Pass the parameter to your page
+      },
+    ),
   ],
 );
-//
+
+// 
