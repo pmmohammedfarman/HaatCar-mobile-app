@@ -10,12 +10,16 @@ import 'presentation/home/home_page.dart';
 import 'presentation/onboarding_screens/onboarding_features_screen.dart';
 import 'presentation/onboarding_screens/onboarding_welcome_screen.dart';
 import 'presentation/onboarding_screens/ready_to_go_screen.dart';
+import 'presentation/profile/user_info_screen.dart';
 
 final GoRouter router = GoRouter(
   routes: <RouteBase>[
-    GoRoute(path: '/', builder: (context, state) => OnboardingWelcomeScreen()), 
+    GoRoute(path: '/', builder: (context, state) => OnboardingWelcomeScreen()),
 
-    GoRoute(path: '/main_navigation', builder: (context, state) => MainNavigation()), 
+    GoRoute(
+      path: '/main_navigation',
+      builder: (context, state) => MainNavigation(),
+    ),
     GoRoute(
       path: '/onboarding_welcome_screen', // :id is the parameter
       builder: (context, state) {
@@ -82,7 +86,12 @@ final GoRouter router = GoRouter(
         return CarItemDetailsScreen(); // Pass the parameter to your page
       },
     ),
+    GoRoute(
+      path: '/user_info_screen', // :id is the parameter
+      builder: (context, state) {
+        return UserInfoScreen(); // Pass the parameter to your page
+      },
+    ),
   ],
 );
-//  
-
+//

@@ -92,7 +92,9 @@ flutter:
      - assets/images/mockup_map_icon.jpg
      - assets/images/car.png
      - assets/images/tamara_icon.png
-
+     - assets/images/user_profile/edit_profile/user_drivers_license_image_with_Selfie.png
+     - assets/images/user_profile/edit_profile/user_drivers_license_image.png
+     - assets/images/user_profile/edit_profile/user_profile_pic.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
