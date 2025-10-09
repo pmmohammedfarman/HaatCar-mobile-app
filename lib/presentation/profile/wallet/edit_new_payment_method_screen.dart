@@ -78,8 +78,8 @@ class _EditPaymentMethodPageState extends State<EditPaymentMethodPage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(right: 16),
-                  child: Image.network(
-                    'https://lh3.googleusercontent.com/aida-public/AB6AXuD8_0A6h9ikctr-i7T8BxSIK5MVDN7A3j4SiTqCHvw9E7zTqFkUt5aWa-ysNmjdCAD9YPodg8GPs7uVcuSxgIrdqnwFVFDoUrPqEQLwaX8Tke9NC50qIV4uWD9YpAt_SytrRo3fRvsvdwhZdGktkqxFq74bzZrWsujkphUG70rzoRNWmncFTMHnHJbl75PiYoph5exQiKY--EUaP25g2c5TrPYDQdVDciq0iUw4yaozbDEH5_aGB3sg-JoK1phciW51sCJZA3FRow',
+                  child: Image.asset(
+                    'assets/images/master_card_icon.png',
                     height: 24,
                     fit: BoxFit.contain,
                   ),

@@ -50,9 +50,9 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
             _buildPaymentCard(
               title: 'Visa ending in 4567',
               subtitle: 'Expires 03/2026',
-              imageUrl:
-                  'https://lh3.googleusercontent.com/aida-public/AB6AXuBT5TtA_BlNisfiAuddV8AxngTsk2ojQESSsN0hLQXl0Ll4QiYkVW2_22cxTH2kQBtGwabBAhY-n_G5B8C_0lRRG71sgpww-054sgYyDmRA8YlK7or0UV0mtj2hnAFdHY1TuSqLq_biO1E2vph-dUYQxnzzuk7pVSNS4DVjj4LmnisJiTkaUFHaQRGCw5im-TtMLM5V3K_yr40PWHelrMNosWhSCbEflK9uyyab-GuQbCMK0mlf0sVK0yovm4vyD6KHZrrb1Z-cyA',
-              value: _visaSelected,
+             imageUrl:
+                  "assets/images/master_card_icon.png", 
+                   value: _visaSelected,
               onChanged: (val) => setState(() => _visaSelected = val),
               isDark: isDark,
             ),
@@ -60,9 +60,8 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
             _buildPaymentCard(
               title: 'Mastercard ending in 8901',
               subtitle: 'Expires 08/2025',
-              imageUrl:
-                  'https://lh3.googleusercontent.com/aida-public/AB6AXuDkRRgnePoiiI70AN9fx1a0-GsmVd69HHWTG1eBqdCU708bc5dNig-t-vLJLqhcV-Jl9-pxRrecPl7AVZYTigAYFQzYsZdvqhbHUcLOF_hTu_YEEeMsslm96gTxUqENJ3xO6MfBWfA8myQurVUKMdJAJwXE5ImemdzKs4sJzxj0IJzdX-PWygeW0-TSJf1mdPwM1Z_s_O1lUiLs6GUu1qpIPhBlaiptpN0K8cJ08SFI_dFN7CRA7czint2wKIaMEMPxf5XeNgouFQ',
-              value: _mastercardSelected,
+             imageUrl:
+                  "assets/images/master_card_icon.png",   value: _mastercardSelected,
               onChanged: (val) => setState(() => _mastercardSelected = val),
               isDark: isDark,
             ),
@@ -73,8 +72,8 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
             _buildPaymentCard(
               title: 'PayPal',
               imageUrl:
-                  'https://lh3.googleusercontent.com/aida-public/AB6AXuAwZsaJIfQVjga0oGrPGnrV8HG603aYvLvZOCdZnGrheqyP1WCei61KlUpGXdWYP-zxr8H-oauU2E3717DDphi1xj5roxVVaS6IEt3olBNv4D4XY0d9AdtD-spqg80iOOZrSO9qTDf5tu-j_AiLeTwRqeHjhOFDqaVGieCfVB9qtHELtI31i92pp4VQZFFMngvY6N7T2EuP_X27yu7wDwmcoFEsxwdLHyLcctl1unttn4d3exWJUCZhA5GJVizNXdnLVBGasFIaGQ',
-              value: _paypalSelected,
+                  "assets/images/master_card_icon.png", 
+                   value: _paypalSelected,
               onChanged: (val) => setState(() => _paypalSelected = val),
               isDark: isDark,
             ),
@@ -82,7 +81,7 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
             _buildPaymentCard(
               title: 'Apple Pay',
               imageUrl:
-                  'https://lh3.googleusercontent.com/aida-public/AB6AXuAogTC8muXzAiCgpqWYdIXYtbkoUftmakdDaIflmxhasZ7x9xos0x4lfFgPSklowOgcECkHJ-3fR63t4rtgksxhtTtDf4EGZ-pEMz8O0zWm6Pyv829xgGFmhhn42HOXtyHEBMSN8-GAzFzSVTKmY_8mnWCUkWr3gVXMLU3ma6MAmRLePE_dRfPZ9nIlI2mvYWKc0fKHOf5usskBjPy4brV-6YKwtXxVPCl-BIZ01zS_sLYskynEkpPBVGa8FRSFwiDtSVWVG-Eu2Q',
+                  "assets/images/master_card_icon.png", 
               value: _applePaySelected,
               onChanged: (val) => setState(() => _applePaySelected = val),
               isDark: isDark,
@@ -168,7 +167,7 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
         ),
         child: Row(
           children: [
-            Image.network(
+            Image.asset(
               imageUrl,
               width: 48,
               height: 32,

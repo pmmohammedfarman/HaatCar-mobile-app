@@ -445,8 +445,8 @@ class _LoyaltyPartnersPageState extends State<LoyaltyPartnersPage> {
                   // Logo + Text
                   Row(
                     children: [
-                      Image.network(
-                        'https://lh3.googleusercontent.com/aida-public/AB6AXuBYw_1QIftYZuYi9IVdOI6HrxnKxxx0ePffIhebfQQ_569CJkA7kuuvpC-xd_zaGePbs0_jZfW78LIw2wiptaBE94sJJy04vJ17Et-VU59_18q0sXL8MFnSuebl9e5CwTMHKoT-00_7Lywfu_mq-RlsKKiXlgS_3dlOQP1HRsVzMA6wDa7ovK14lcoE5ep1dz-IX_ZH0iP9QBf_vnKSTF0FsXzIkCw5iJ8PP9Q_E9EfoA6zIi5Fv3Vdzb33funFswXf_QlxRHcOODJI',
+                      Image.asset(
+                        "assets/images/saudia_airlines_icon.png", 
                         height: 40,
                       ),
                       const SizedBox(width: 12),

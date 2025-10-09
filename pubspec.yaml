@@ -96,7 +96,9 @@ flutter:
      - assets/images/user_profile/edit_profile/user_drivers_license_image_with_Selfie.png
      - assets/images/user_profile/edit_profile/user_drivers_license_image.png
      - assets/images/user_profile/edit_profile/user_profile_pic.png
-
+     - assets/images/saudia_airlines_icon.png
+     - assets/images/master_card_icon.png
+     - assets/images/rental_screen_car_icon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

@@ -136,8 +136,8 @@ class AddCashPage extends StatelessWidget {
                             children: [
                               Row(
                                 children: [
-                                  Image.network(
-                                    "https://lh3.googleusercontent.com/aida-public/AB6AXuDDqBCztQLVbvAfzT__OXNWMnmFCJ9Es7O8cHyDVmzI2srOws3ijSBgpcvJFk3MtxQo_uRCjlYiYTq05RcVDTsy9TGp-6HNep4rwB4GBzV7-8AsAQLy-vz5CPmuaK-p0WBvldW7XHsvjKuN8cdUbm5iIo4_a5cbtbMy2SMwrvMZUXiSru9OW7CCD05U31TAVuXuOa6yw1c_4S13bscQoVAOC-7-JgJ4lGfBZ7K0fn_VD1Qwu61i1tPRhOQr2TGMXXDr2IoLSQNbng",
+                                  Image.asset(
+                                    "assets/images/master_card_icon.png",
                                     width: 40,
                                   ),
                                   const SizedBox(width: 12),
