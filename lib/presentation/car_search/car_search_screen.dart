@@ -164,7 +164,7 @@ class _CarwahHomeState extends State<CarwahHome> {
                 image: const DecorationImage(
                   fit: BoxFit.cover,
                   image: AssetImage(
-                   'assets/images/search/search_screen_bg.png', 
+                    'assets/images/search/search_screen_bg.png',
                   ),
                 ),
                 gradient: const LinearGradient(
@@ -211,7 +211,7 @@ class _CarwahHomeState extends State<CarwahHome> {
               ),
 
               const Spacer(),
-              
+
               /// Card content
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -359,6 +359,7 @@ class _CarwahHomeState extends State<CarwahHome> {
                   top: 4.0,
                   bottom: 4.0,
                 ),
+
                 child: SizedBox(
                   width: double.infinity,
                   height: 56,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../widgets/button/common_button.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -284,34 +286,7 @@ class _LoginScreenState extends State<LoginScreen> {
             padding: const EdgeInsets.all(12.0), // px-4 py-3
             child: Column(
               children: [
-                SizedBox(
-                  width: double.infinity,
-                  height: 48.0, // h-12
-                  child: ElevatedButton(
-                    onPressed: () {
-                      context.push('/otp_screen');
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFF2740D), // #f2740d
-                      foregroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0), // rounded-lg
-                      ),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 20.0,
-                      ), // px-5
-                      minimumSize: const Size(84.0, 48.0), // min-w-84 h-12
-                      maximumSize: const Size(480.0, 48.0), // max-w-480
-                      textStyle: const TextStyle(
-                        fontSize: 16.0, // text-base
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 0.24, // tracking-[0.015em]
-                        height: 1.25, // leading-normal
-                      ),
-                    ),
-                    child: const Text('Next'),
-                  ),
-                ),
+                CommonButtonWidget(nextPath: '/otp_screen', textItem: "Next"),
                 const SizedBox(height: 20.0), // h-5 ≈ 20px
               ],
             ),

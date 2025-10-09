@@ -432,7 +432,9 @@ class AllyCarWidget extends StatelessWidget {
                   top: 8.0,
                   bottom: 16.0,
                 ),
-                child: ElevatedButton(
+                child:
+                
+                 ElevatedButton(
                   onPressed: () {
                     context.push('/car_item_details_screen');
                   },
