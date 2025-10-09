@@ -21,8 +21,8 @@ class MyApp extends ConsumerWidget {
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
-      locale: Locale('en'),
-      // ref.watch(localeProvider).value ?? Locale('en'),
+      locale: 
+      ref.watch(localeProvider).value ?? Locale('en'),
       supportedLocales: L10n.all,
       debugShowCheckedModeBanner: false,
       title: '${AppLocalizations.of(context)?.appTitle}',
