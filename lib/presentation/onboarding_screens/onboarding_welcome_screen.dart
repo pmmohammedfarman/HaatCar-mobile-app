@@ -44,7 +44,8 @@ class OnboardingWelcomeScreen extends ConsumerWidget {
                     style: TextStyle(
                       color: Color(0xFF181411), // #181411
                       fontSize: 28.0,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w600,
+                      fontFamily: "Changa",
                       letterSpacing:
                           -0.7, // Approximate tracking-light (-0.025em at 28px)
                       height: 1.0, // leading-tight

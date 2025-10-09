@@ -261,7 +261,9 @@ class CarItemDetailsScreen extends StatelessWidget {
             ),
             child: const Text(
               'Book Now',
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(fontWeight: FontWeight.bold, 
+              fontSize: 20,
+               color: Colors.white,),
             ),
           ),
         ),
