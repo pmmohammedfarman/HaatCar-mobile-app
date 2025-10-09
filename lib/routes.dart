@@ -6,6 +6,7 @@ import 'presentation/car_search/car_details_screen.dart';
 import 'presentation/car_search/car_search_by_map_screen.dart';
 import 'presentation/car_search/car_search_results.dart';
 import 'presentation/car_search/choose_car_ally_screen.dart';
+import 'presentation/choose_language_screen.dart';
 import 'presentation/home/home_page.dart';
 import 'presentation/onboarding_screens/onboarding_features_screen.dart';
 import 'presentation/onboarding_screens/onboarding_welcome_screen.dart';
@@ -19,7 +20,9 @@ import 'presentation/profile/wallet/wallet_screen.dart';
 
 final GoRouter router = GoRouter(
   routes: <RouteBase>[
-    GoRoute(path: '/', builder: (context, state) => OnboardingWelcomeScreen()),
+    GoRoute(path: '/', builder: (context, state) => ChooseLanguagePage()
+    // OnboardingWelcomeScreen()
+    ),
 
     GoRoute(
       path: '/main_navigation',
@@ -125,6 +128,12 @@ final GoRouter router = GoRouter(
       path: '/add_cash_screen', // :id is the parameter
       builder: (context, state) {
         return AddCashPage(); // Pass the parameter to your page
+      },
+    ),
+    GoRoute(
+      path: '/choose_language_screen', // :id is the parameter
+      builder: (context, state) {
+        return ChooseLanguagePage(); // Pass the parameter to your page
       },
     ),
   ],
